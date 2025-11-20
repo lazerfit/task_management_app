@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-english: 'Story Script', sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  #root {
+    display: flex;
+    min-height: 100vh;
+  }
+}
