@@ -1,14 +1,10 @@
-import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Footer from './Footer';
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps) => {
+const Layout = () => {
   return (
-    <div className="box-border w-full max-w-md h-[90vh] m-auto px-4 border border-solid flex flex-col justify-center items-center rounded-sm">
-      {children}
+    <div className="box-border w-full max-w-md h-[90vh] m-auto px-4 border border-solid flex flex-col justify-center items-center rounded-sm relative">
+      <Outlet />
       <Footer />
     </div>
   );
