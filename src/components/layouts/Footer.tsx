@@ -5,15 +5,18 @@ import {
   IoFolderOutline,
   IoPersonOutline,
 } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <nav className="w-full h-14 flex justify-between items-center border border-solid mt-auto">
       <button
         type="button"
         aria-label="Home"
         className="p-2 cursor-pointer"
-        onClick={() => console.log('Navigate to Home')}
+        onClick={() => navigate('/')}
       >
         <IoHomeOutline className="w-6 h-6" />
       </button>
@@ -29,7 +32,7 @@ const Footer = () => {
         type="button"
         aria-label="Add New"
         className="p-2 cursor-pointer"
-        onClick={() => console.log('Navigate to Add New')}
+        onClick={() => navigate('/tasks/new')}
       >
         <IoAddCircleSharp className="w-10 h-10" />
       </button>
