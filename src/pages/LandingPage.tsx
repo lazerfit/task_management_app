@@ -1,14 +1,13 @@
 import Header from '@/features/landing/LandingHeader';
-import LandingTasks from '@/features/landing/LandingTasks';
-import LandingProjects from '@/features/landing/LandingProjects';
+import LandingMain from '@/features/landing/LandingMain';
+import Page from '@/components/ui/template/Page';
 
 const LandingPage = () => {
   return (
-    <div className="border w-full h-full relative flex flex-col overflow-hidden">
+    <Page>
       <Header />
-      <LandingTasks />
-      <LandingProjects />
-    </div>
+      <LandingMain />
+    </Page>
   );
 };
 

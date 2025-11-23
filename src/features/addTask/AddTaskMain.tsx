@@ -5,6 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import MainContent from '@/components/ui/template/MainContent';
 
 const AddTaskMain = () => {
   const selectOptions = [
@@ -31,7 +32,7 @@ const AddTaskMain = () => {
   ];
 
   return (
-    <div className="mt-20 border w-full h-full flex flex-col gap-3">
+    <MainContent className="gap-3">
       <h1 className="text-2xl font-bold">Task Management App</h1>
       <div className="flex flex-col gap-5 mt-6">
         {selectOptions.map((option) => (
@@ -52,7 +53,7 @@ const AddTaskMain = () => {
           </div>
         ))}
       </div>
-    </div>
+    </MainContent>
   );
 };
 

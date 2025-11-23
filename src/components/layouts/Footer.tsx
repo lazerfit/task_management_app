@@ -40,7 +40,7 @@ const Footer = () => {
         type="button"
         aria-label="Folders"
         className="p-2 cursor-pointer"
-        onClick={() => console.log('Navigate to Folders')}
+        onClick={() => navigate('/projects')}
       >
         <IoFolderOutline className="w-6 h-6" />
       </button>
