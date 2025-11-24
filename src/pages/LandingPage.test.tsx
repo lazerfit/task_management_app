@@ -7,12 +7,8 @@ vi.mock('@/features/landing/LandingHeader', () => ({
   default: () => <div data-testid="landing-header">LandingHeader</div>,
 }));
 
-vi.mock('@/features/landing/LandingTasks', () => ({
-  default: () => <div data-testid="landing-tasks">LandingTasks</div>,
-}));
-
-vi.mock('@/features/landing/LandingProjects', () => ({
-  default: () => <div data-testid="landing-projects">LandingProjects</div>,
+vi.mock('@/features/landing/LandingMain', () => ({
+  default: () => <div data-testid="landing-main">LandingMain</div>,
 }));
 
 describe('LandingPage', () => {
@@ -20,7 +16,6 @@ describe('LandingPage', () => {
     render(<LandingPage />);
 
     expect(screen.getByTestId('landing-header')).toBeInTheDocument();
-    expect(screen.getByTestId('landing-tasks')).toBeInTheDocument();
-    expect(screen.getByTestId('landing-projects')).toBeInTheDocument();
+    expect(screen.getByTestId('landing-main')).toBeInTheDocument();
   });
 });

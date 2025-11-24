@@ -3,7 +3,7 @@ import {
   IoHomeOutline,
   IoAddCircleSharp,
   IoFolderOutline,
-  IoPersonOutline,
+  IoFlowerOutline,
 } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ const Footer = () => {
         type="button"
         aria-label="Calendar"
         className="p-2 cursor-pointer"
-        onClick={() => console.log('Navigate to Calendar')}
+        onClick={() => navigate('/calendar')}
       >
         <IoCalendarClearOutline className="w-6 h-6" />
       </button>
@@ -46,11 +46,11 @@ const Footer = () => {
       </button>
       <button
         type="button"
-        aria-label="Profile"
+        aria-label="Setting"
         className="p-2 cursor-pointer"
-        onClick={() => console.log('Navigate to Profile')}
+        onClick={() => navigate('/setting')}
       >
-        <IoPersonOutline className="w-6 h-6" />
+        <IoFlowerOutline className="w-6 h-6" />
       </button>
     </nav>
   );

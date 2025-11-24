@@ -25,7 +25,7 @@ describe('Footer', () => {
     expect(screen.getByLabelText('Calendar')).toBeInTheDocument();
     expect(screen.getByLabelText('Add New')).toBeInTheDocument();
     expect(screen.getByLabelText('Folders')).toBeInTheDocument();
-    expect(screen.getByLabelText('Profile')).toBeInTheDocument();
+    expect(screen.getByLabelText('Setting')).toBeInTheDocument();
   });
 
   it('navigates to home when home button is clicked', () => {
@@ -48,5 +48,16 @@ describe('Footer', () => {
 
     fireEvent.click(screen.getByLabelText('Add New'));
     expect(mockNavigate).toHaveBeenCalledWith('/tasks/new');
+  });
+
+  it('navigates to settings when setting button is clicked', () => {
+    render(
+      <MemoryRouter>
+        <Footer />
+      </MemoryRouter>,
+    );
+
+    fireEvent.click(screen.getByLabelText('Setting'));
+    expect(mockNavigate).toHaveBeenCalledWith('/setting');
   });
 });
