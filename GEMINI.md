@@ -10,10 +10,11 @@
 - **Core:** React 19, TypeScript
 - **Build Tool:** Vite 7
 - **Styling:** Tailwind CSS v4, clsx, tailwind-merge
-- **UI Components:** shadcn/ui (Label, Radio Group, Select), React Icons
+- **UI Components:** shadcn/ui (Label, Radio Group, Select), React Icons, Swiper
 - **Routing:** React Router DOM v7
 - **Package Manager:** pnpm
 - **Test:** Vitest, React Testing Library
+- **Utils:** Day.js, clsx, tailwind-merge, prettier-plugin-tailwindcss
 
 ## 3. 프로젝트 구조
 
@@ -43,7 +44,9 @@ layout과 ui 컴포넌트는 src/components 폴더에 위치하고 있습니다.
   - `/setting`: SettingPage (하위: ThemePage)
   - `/calendar`: CalendarPage
 - **최근 작업:**
-  - 캘린더 기능 (`CalendarMain`, `DateStrip`, `DateScroll`) 구현 중.
+  - 캘린더 기능 (`CalendarMain`, `DateStrip`, `DateScroll`) 구현 완료.
+    - `DateScroll`: Swiper 적용, Day.js 기반 동적 날짜 생성, 선택된 날짜 중앙 정렬.
+    - `TimelineItem`: 타임라인 아이템 컴포넌트 추가.
   - 레이아웃 및 공통 템플릿 작업.
 - **코드 품질:**
   - Lint: 양호 (사소한 스타일 경고 존재 가능).

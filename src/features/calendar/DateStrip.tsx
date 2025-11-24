@@ -1,11 +1,13 @@
+import dayjs from 'dayjs';
+
 const DateStrip = () => {
-  const dateNow = new Date().toLocaleDateString('ko-KR');
+  const dateNow = dayjs().format('YYYY-MM-DD');
 
   return (
     <div className="px-6">
-      <div className="flex justify-between items-end mb-4">
+      <div className="mb-4 flex items-end justify-between">
         <div>
-          <p className="text-gray-400 text-sm">{dateNow}</p>
+          <p className="text-sm text-gray-400">{dateNow}</p>
           <h2 className="text-2xl font-bold text-gray-800">Today</h2>
         </div>
       </div>

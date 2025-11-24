@@ -1,86 +1,47 @@
-import { useRef, useState, type MouseEvent } from 'react';
-
-const dates = [
-  { day: 'Fri', date: 5 },
-  { day: 'Sat', date: 6 },
-  { day: 'Sun', date: 7 },
-  { day: 'Mon', date: 8 },
-  { day: 'Tue', date: 9 },
-  { day: 'Wed', date: 10 },
-  { day: 'Thu', date: 11 },
-  { day: 'Fri', date: 12 },
-  { day: 'Sat', date: 13 },
-];
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { useState } from 'react';
+import dayjs from 'dayjs';
 
 const DateScroll = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [selectedDate, setSelectedDate] = useState<number>(7); // Default selected date
-  const isDragRef = useRef(false);
+  const today = dayjs();
+  const daysInMonth = today.daysInMonth();
+  const [activeDate, setActiveDate] = useState(today.date());
 
-  const onMouseDown = (e: MouseEvent) => {
-    if (!scrollRef.current) return;
-    setIsDragging(true);
-    isDragRef.current = false;
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const onMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const onMouseUp = () => {
-    setIsDragging(false);
-    // Delay resetting isDragging to allow onClick to fire first if needed,
-    // but actually we use isDragRef for the click check.
-  };
-
-  const onMouseMove = (e: MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-
-    // If moved more than 5 pixels, consider it a drag
-    if (Math.abs(x - startX) > 5) {
-      isDragRef.current = true;
-    }
-
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleDateClick = (date: number) => {
-    if (isDragRef.current) return;
-    setSelectedDate(date);
-  };
+  const dates = Array.from({ length: daysInMonth }, (_, i) => {
+    const date = i + 1;
+    return {
+      day: today.date(date).format('ddd'),
+      date: date,
+    };
+  });
 
   return (
-    <div
-      ref={scrollRef}
-      className="flex space-x-4 overflow-x-auto pb-2 scrollbar-hide cursor-grab active:cursor-grabbing"
-      onMouseDown={onMouseDown}
-      onMouseLeave={onMouseLeave}
-      onMouseUp={onMouseUp}
-      onMouseMove={onMouseMove}
-    >
-      {dates.map((date, index) => (
-        <div
-          key={index}
-          onClick={() => handleDateClick(date.date)}
-          className={`flex flex-col items-center justify-center min-w-[70px] h-[100px] rounded-2xl select-none
-            transition-colors ${
-              selectedDate === date.date
-                ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-300'
-                : 'bg-white text-gray-500'
-            }`}
-        >
-          <span className="text-lg font-bold mb-1">{date.date}</span>
-          <span className="text-xs font-medium">{date.day}</span>
-        </div>
-      ))}
+    <div className="flex w-full items-center justify-center border px-6 py-4">
+      <Swiper
+        className="w-full border"
+        spaceBetween={12}
+        slidesPerView="auto"
+        centeredSlides={true}
+        initialSlide={today.date() - 1}
+        slideToClickedSlide={true}
+      >
+        {dates.map((date, index) => (
+          <SwiperSlide key={index} className="w-auto!">
+            <button
+              className={`flex h-24 w-16 flex-col items-center justify-center rounded-3xl border transition-colors ${
+                activeDate === date.date
+                  ? 'border-indigo-400 bg-indigo-400 text-white'
+                  : 'border-gray-200 bg-white text-gray-500'
+              }`}
+              onClick={() => setActiveDate(date.date)}
+            >
+              <span className="text-2xl font-bold">{date.date}</span>
+              <span className="text-sm">{date.day}</span>
+            </button>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };
