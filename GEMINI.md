@@ -35,7 +35,7 @@ layout과 ui 컴포넌트는 src/components 폴더에 위치하고 있습니다.
 - `src/components/layouts/`: 레이아웃 컴포넌트
 - `src/components/ui/`: shadcn/ui 컴포넌트
 
-## 4. 현재 상태 (2025-11-24 기준)
+## 4. 현재 상태 (2025-11-26 기준)
 
 - **라우팅:**
   - `/`: LandingPage
@@ -48,9 +48,12 @@ layout과 ui 컴포넌트는 src/components 폴더에 위치하고 있습니다.
     - `DateScroll`: Swiper 적용, Day.js 기반 동적 날짜 생성, 선택된 날짜 중앙 정렬.
     - `TimelineItem`: 타임라인 아이템 컴포넌트 추가.
   - 레이아웃 및 공통 템플릿 작업.
+  - 캘린더 관련 테스트 파일 6개 추가 (`CalendarPage`, `CalendarHeader`, `CalendarMain`, `DateStrip`, `DateScroll`, `TimelineItem`).
+  - 테스트 환경 개선: `@testing-library/user-event` 추가.
+  - 코드 개선: `TimelineItem` 리스트 렌더링 키 경고 수정, `CalendarHeader` 접근성(`aria-label`) 개선.
 - **코드 품질:**
   - Lint: 양호 (사소한 스타일 경고 존재 가능).
-  - Test: 22개의 테스트 파일 존재, Vitest로 실행 가능.
+  - Test: 28개의 테스트 파일 존재, Vitest로 실행 가능.
 
 ## 5. 주요 명령어
 
