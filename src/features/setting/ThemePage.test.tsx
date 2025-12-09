@@ -7,8 +7,6 @@ describe('ThemePage', () => {
     render(<ThemePage />);
 
     expect(screen.getByText('Theme Settings')).toBeInTheDocument();
-    expect(
-      screen.getByText('Theme settings content will go here.'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Dark')).toBeInTheDocument();
   });
 });

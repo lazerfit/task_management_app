@@ -8,7 +8,7 @@ const AddTaskHeader = () => {
       <div className="cursor-pointer">
         <GoArrowLeft size="26px" />
       </div>
-      <div className="font-bold text-3xl font-english">Add Task</div>
+      <div className="font-english text-3xl font-bold">Add Task</div>
       <div className="cursor-pointer">
         <IoMenuOutline size="26px" />
       </div>

@@ -34,9 +34,9 @@ const AddTaskMain = () => {
   return (
     <MainContent className="gap-3">
       <h1 className="text-2xl font-bold">Task Management App</h1>
-      <div className="flex flex-col gap-5 mt-6">
+      <div className="mt-6 flex flex-col gap-5">
         {selectOptions.map((option) => (
-          <div className="flex items-center justify-start gap-5 border h-12 p-3 rounded-xl">
+          <div className="flex h-12 items-center justify-start gap-5 rounded-xl border p-3">
             <div className="w-20">{option.label}</div>
             <Select key={option.label}>
               <SelectTrigger className="h-10 w-50 border-none shadow-none">

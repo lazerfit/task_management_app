@@ -82,12 +82,12 @@ layout과 ui 컴포넌트는 src/components 폴더에 위치하고 있습니다.
 
 요소를 찾을 때 다음 우선순위를 엄격히 따르십시오:
 
-1.  `getByRole` (가장 권장됨: `name` 옵션과 함께 사용)
-    - 예: `screen.getByRole('button', { name: /submit/i })`
-2.  `getByLabelText` (폼 입력 필드)
-3.  `getByPlaceholderText`
-4.  `getByText`
-5.  `getByTestId` (최후의 수단으로만 사용, `data-testid` 속성 필요)
+1. `getByRole` (가장 권장됨: `name` 옵션과 함께 사용)
+   - 예: `screen.getByRole('button', { name: /submit/i })`
+2. `getByLabelText` (폼 입력 필드)
+3. `getByPlaceholderText`
+4. `getByText`
+5. `getByTestId` (최후의 수단으로만 사용, `data-testid` 속성 필요)
 
 ### 4. Writing Tests
 
