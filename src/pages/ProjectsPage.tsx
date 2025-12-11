@@ -1,4 +1,4 @@
-import Page from '@/components/ui/template/Page';
+import Page from '@/components/template/Page';
 import ProjectsHeader from '@/features/projects/ProjectsHeader';
 import ProjectsMain from '@/features/projects/ProjectsMain';
 

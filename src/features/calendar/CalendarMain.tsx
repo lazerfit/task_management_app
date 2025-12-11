@@ -1,4 +1,4 @@
-import MainContent from '@/components/ui/template/MainContent';
+import MainContent from '@/components/template/MainContent';
 import DateStrip from './DateStrip';
 import DateScroll from './DateScroll';
 import TimelineItem from './TimelineItem';

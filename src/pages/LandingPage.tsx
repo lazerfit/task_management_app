@@ -1,6 +1,6 @@
 import Header from '@/features/landing/LandingHeader';
 import LandingMain from '@/features/landing/LandingMain';
-import Page from '@/components/ui/template/Page';
+import Page from '@/components/template/Page';
 
 const LandingPage = () => {
   return (

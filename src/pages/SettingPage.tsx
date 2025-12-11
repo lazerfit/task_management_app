@@ -1,4 +1,4 @@
-import Page from '@/components/ui/template/Page';
+import Page from '@/components/template/Page';
 import SettingHeader from '@/features/setting/SettingHeader';
 import { Outlet } from 'react-router-dom';
 

@@ -1,4 +1,4 @@
-import BoxProject from '@/components/ui/BoxProject';
+import BoxProject from '@/components/common/BoxProject';
 
 const LandingProjects = () => {
   return <BoxProject />;

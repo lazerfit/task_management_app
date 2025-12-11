@@ -5,7 +5,7 @@ interface MainContentProps {
 
 const MainContent = ({ children, className }: MainContentProps) => {
   return (
-    <div className={`w-full h-full mt-20 flex flex-col ${className}`}>
+    <div className={`mt-20 flex h-full w-full flex-col ${className}`}>
       {children}
     </div>
   );

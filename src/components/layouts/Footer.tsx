@@ -11,46 +11,46 @@ const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="w-full h-14 flex justify-between items-center border border-solid mt-auto">
+    <nav className="mt-auto flex h-14 w-full items-center justify-between border border-solid">
       <button
         type="button"
         aria-label="Home"
-        className="p-2 cursor-pointer"
+        className="cursor-pointer p-2"
         onClick={() => navigate('/')}
       >
-        <IoHomeOutline className="w-6 h-6" />
+        <IoHomeOutline className="h-6 w-6" />
       </button>
       <button
         type="button"
         aria-label="Calendar"
-        className="p-2 cursor-pointer"
+        className="cursor-pointer p-2"
         onClick={() => navigate('/calendar')}
       >
-        <IoCalendarClearOutline className="w-6 h-6" />
+        <IoCalendarClearOutline className="h-6 w-6" />
       </button>
       <button
         type="button"
         aria-label="Add New"
-        className="p-2 cursor-pointer"
-        onClick={() => navigate('/tasks/new')}
+        className="cursor-pointer p-2"
+        onClick={() => navigate('/projects/new')}
       >
-        <IoAddCircleSharp className="w-10 h-10" />
+        <IoAddCircleSharp className="h-10 w-10" />
       </button>
       <button
         type="button"
         aria-label="Folders"
-        className="p-2 cursor-pointer"
+        className="cursor-pointer p-2"
         onClick={() => navigate('/projects')}
       >
-        <IoFolderOutline className="w-6 h-6" />
+        <IoFolderOutline className="h-6 w-6" />
       </button>
       <button
         type="button"
         aria-label="Setting"
-        className="p-2 cursor-pointer"
+        className="cursor-pointer p-2"
         onClick={() => navigate('/setting')}
       >
-        <IoFlowerOutline className="w-6 h-6" />
+        <IoFlowerOutline className="h-6 w-6" />
       </button>
     </nav>
   );

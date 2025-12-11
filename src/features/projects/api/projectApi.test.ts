@@ -30,14 +30,12 @@ describe('projectApi', () => {
   const mockProjectResponse: ProjectResponse = {
     id: 1,
     name: 'Test Project',
-    status: 'TODO',
     createAt: new Date(),
   };
 
   it('createProject calls axios.post with correct arguments', async () => {
     const request: ProjectCreateRequest = {
       name: 'Test Project',
-      status: 'TODO',
     };
     (axiosInstance.post as Mock).mockResolvedValue({
       data: { data: mockProjectResponse },
@@ -67,7 +65,6 @@ describe('projectApi', () => {
     const projectId = 1;
     const request: ProjectUpdateRequest = {
       name: 'Updated Project',
-      status: 'IN_PROGRESS',
     };
     const updatedResponse = { ...mockProjectResponse, ...request };
 

@@ -1,4 +1,4 @@
-import MainContent from '@/components/ui/template/MainContent';
+import MainContent from '@/components/template/MainContent';
 import LandingTasks from './LandingTasks';
 import LandingProjects from './LandingProjects';
 

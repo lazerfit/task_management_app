@@ -1,5 +1,5 @@
-export type Status = 'TODO' | 'IN_PROGRESS' | 'COMPLETE' | 'CANCLED';
-export type Priority = 'HIGH' | 'MEDIUM' | 'LOW';
+export type Status = 'TODO' | 'IN_PROGRESS' | 'COMPLETE' | 'CANCELED';
+export type Priority = 'HIGH' | 'MEDIUM' | 'LOW' | 'URGENT';
 
 export interface TaskResponse {
   id: number;

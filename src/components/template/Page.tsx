@@ -4,7 +4,7 @@ interface PageProps {
 
 const Page = ({ children }: PageProps) => {
   return (
-    <div className="border w-full h-full relative flex flex-col overflow-hidden">
+    <div className="relative flex h-full w-full flex-col overflow-hidden border">
       {children}
     </div>
   );

@@ -17,7 +17,6 @@ describe('useProjectQueries', () => {
   const mockProject: ProjectResponse = {
     id: 1,
     name: 'Test Project',
-    status: 'TODO',
     createAt: new Date(),
   };
 
@@ -34,7 +33,7 @@ describe('useProjectQueries', () => {
         wrapper: queryWrapper(),
       });
 
-      await result.current.mutateAsync({ name: 'New Project', status: 'TODO' });
+      await result.current.mutateAsync({ name: 'New Project' });
 
       await waitFor(() => expect(result.current.isSuccess).toBe(true));
       expect(createProjectSpy).toHaveBeenCalledWith({
@@ -81,7 +80,7 @@ describe('useProjectQueries', () => {
 
       await result.current.mutateAsync({
         id: 1,
-        request: { name: 'Updated', status: 'IN_PROGRESS' },
+        request: { name: 'Updated' },
       });
 
       await waitFor(() => expect(result.current.isSuccess).toBe(true));

@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import type {
   ProjectCreateRequest,
   ProjectResponse,
@@ -8,17 +8,18 @@ import {
   deleteProject,
   getProject,
   updateProject as updateProjectApi,
-} from '../api/projectApi'; // updateProject as updateProjectApi
+} from '../api/projectApi';
 import type { ProjectUpdateRequest } from '../types/projectTypes';
+import { useCustomMutation } from '@/hooks/useCustomMutation';
 
 export const useCreateProject = () => {
-  const queryClient = useQueryClient();
-  return useMutation<ProjectResponse, Error, ProjectCreateRequest>({
-    mutationFn: (data: ProjectCreateRequest) => createProject(data),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['projects'] });
+  return useCustomMutation<ProjectResponse, Error, ProjectCreateRequest>(
+    createProject,
+    {
+      successMessage: '프로젝트가 생성되었습니다.',
+      invalidateKeys: [['projects']],
     },
-  });
+  );
 };
 
 export const useGetProject = (id: number) => {
@@ -31,27 +32,25 @@ export const useGetProject = (id: number) => {
 };
 
 export const useUpdateProject = () => {
-  const queryClient = useQueryClient();
-  return useMutation<
+  return useCustomMutation<
     ProjectResponse,
     Error,
     { id: number; request: ProjectUpdateRequest }
-  >({
-    mutationFn: ({ id, request }) => updateProjectApi(id, request),
-    onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ queryKey: ['project', variables.id] });
-      queryClient.invalidateQueries({ queryKey: ['projects'] });
-    },
+  >(({ id, request }) => updateProjectApi(id, request), {
+    successMessage: '프로젝트가 수정되었습니다.',
+    invalidateKeys: (_, variables) => [['project', variables.id], ['projects']],
   });
 };
 
 export const useDeleteProject = () => {
-  const queryClient = useQueryClient();
-  return useMutation<void, Error, { id: number }>({
-    mutationFn: ({ id }) => deleteProject(id),
-    onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ queryKey: ['projects'] });
-      queryClient.invalidateQueries({ queryKey: ['project', variables.id] });
+  return useCustomMutation<void, Error, { id: number }>(
+    ({ id }) => deleteProject(id),
+    {
+      successMessage: '프로젝트가 삭제되었습니다.',
+      invalidateKeys: (_, variables) => [
+        ['projects'],
+        ['project', variables.id],
+      ],
     },
-  });
+  );
 };

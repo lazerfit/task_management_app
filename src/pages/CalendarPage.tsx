@@ -1,4 +1,4 @@
-import Page from '@/components/ui/template/Page';
+import Page from '@/components/template/Page';
 import CalendarHeader from '@/features/calendar/CalendarHeader';
 import CalendarMain from '@/features/calendar/CalendarMain';
 
