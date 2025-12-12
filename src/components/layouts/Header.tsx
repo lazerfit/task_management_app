@@ -6,7 +6,7 @@ interface HeaderProps {
 
 const Header = ({ children }: HeaderProps) => {
   return (
-    <header className="h-14 absolute top-0 left-0 w-full flex items-center justify-between z-10 border">
+    <header className="absolute top-0 left-0 z-10 flex h-14 w-full items-center justify-between border">
       {children}
     </header>
   );

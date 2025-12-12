@@ -1,11 +1,11 @@
-import {
-  IoCalendarClearOutline,
-  IoHomeOutline,
-  IoAddCircleSharp,
-  IoFolderOutline,
-  IoFlowerOutline,
-} from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
+import {
+  IconFolder,
+  IconCalendar,
+  IconHome,
+  IconSettings2,
+  IconHexagonPlusFilled,
+} from '@tabler/icons-react';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Footer = () => {
         className="cursor-pointer p-2"
         onClick={() => navigate('/')}
       >
-        <IoHomeOutline className="h-6 w-6" />
+        <IconHome className="h-7 w-7" />
       </button>
       <button
         type="button"
@@ -26,7 +26,7 @@ const Footer = () => {
         className="cursor-pointer p-2"
         onClick={() => navigate('/calendar')}
       >
-        <IoCalendarClearOutline className="h-6 w-6" />
+        <IconCalendar className="h-7 w-7" />
       </button>
       <button
         type="button"
@@ -34,7 +34,7 @@ const Footer = () => {
         className="cursor-pointer p-2"
         onClick={() => navigate('/projects/new')}
       >
-        <IoAddCircleSharp className="h-10 w-10" />
+        <IconHexagonPlusFilled className="h-10 w-10" />
       </button>
       <button
         type="button"
@@ -42,7 +42,7 @@ const Footer = () => {
         className="cursor-pointer p-2"
         onClick={() => navigate('/projects')}
       >
-        <IoFolderOutline className="h-6 w-6" />
+        <IconFolder className="h-7 w-7" />
       </button>
       <button
         type="button"
@@ -50,7 +50,7 @@ const Footer = () => {
         className="cursor-pointer p-2"
         onClick={() => navigate('/setting')}
       >
-        <IoFlowerOutline className="h-6 w-6" />
+        <IconSettings2 className="h-7 w-7" />
       </button>
     </nav>
   );

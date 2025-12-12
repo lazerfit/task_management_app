@@ -18,6 +18,7 @@ describe('useProjectQueries', () => {
     id: 1,
     name: 'Test Project',
     createAt: new Date(),
+    status: 'TODO',
   };
 
   beforeEach(() => {
@@ -36,10 +37,12 @@ describe('useProjectQueries', () => {
       await result.current.mutateAsync({ name: 'New Project' });
 
       await waitFor(() => expect(result.current.isSuccess).toBe(true));
-      expect(createProjectSpy).toHaveBeenCalledWith({
-        name: 'New Project',
-        status: 'TODO',
-      });
+      expect(createProjectSpy).toHaveBeenCalledWith(
+        {
+          name: 'New Project',
+        },
+        expect.anything(),
+      );
     });
   });
 
@@ -80,7 +83,7 @@ describe('useProjectQueries', () => {
 
       await result.current.mutateAsync({
         id: 1,
-        request: { name: 'Updated' },
+        request: { name: 'Updated', status: 'IN_PROGRESS' },
       });
 
       await waitFor(() => expect(result.current.isSuccess).toBe(true));

@@ -17,11 +17,10 @@ const SettingHeader = () => {
 
   return (
     <Header>
-      {' '}
       <div className="cursor-pointer" onClick={handleBack}>
         <GoArrowLeft size="26px" />
       </div>
-      <div className="font-bold text-3xl font-english">Setting</div>
+      <div className="font-english text-3xl font-bold">Setting</div>
       <div className="cursor-pointer">
         <IoMenuOutline size="26px" />
       </div>

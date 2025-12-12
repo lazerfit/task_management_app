@@ -3,11 +3,11 @@ import BoxProject from './BoxProject';
 import { describe, it, expect } from 'vitest';
 
 describe('BoxProject', () => {
-  it('renders project list items', () => {
-    render(<BoxProject />);
+  it('renders project name', () => {
+    const projectName = 'Test Project';
+    render(<BoxProject name={projectName} />);
 
-    expect(screen.getByText('Task Management')).toBeInTheDocument();
+    expect(screen.getByText(projectName)).toBeInTheDocument();
     expect(screen.getByText('12 tasks')).toBeInTheDocument();
-    expect(screen.getAllByText('Snapping')).toHaveLength(2);
   });
 });

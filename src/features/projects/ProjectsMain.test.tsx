@@ -7,7 +7,7 @@ vi.mock('./Navigation', () => ({
   default: () => <div data-testid="navigation">Navigation</div>,
 }));
 
-vi.mock('@/components/ui/BoxProject', () => ({
+vi.mock('@/components/common/BoxProject', () => ({
   default: () => <div data-testid="box-project">BoxProject</div>,
 }));
 

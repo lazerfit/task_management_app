@@ -6,14 +6,14 @@ const LandingHeader = () => {
   return (
     <Header>
       <div className="flex gap-3">
-        <div className="w-10 h-10 rounded-full overflow-hidden">
+        <div className="h-10 w-10 overflow-hidden rounded-full">
           <img
             src={avatar}
             alt="User Avatar"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </div>
-        <p className="font-bold text-lg">Hi, 성광</p>
+        <p className="text-lg font-bold">Hi, 성광</p>
       </div>
       <div>
         <IoMenuOutline size="26px" />

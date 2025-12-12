@@ -7,6 +7,7 @@ import {
   createProject,
   deleteProject,
   getProject,
+  getProjects,
   updateProject as updateProjectApi,
 } from '../api/projectApi';
 import type { ProjectUpdateRequest } from '../types/projectTypes';
@@ -27,6 +28,14 @@ export const useGetProject = (id: number) => {
     queryKey: ['project', id],
     queryFn: () => getProject(id),
     enabled: !!id && id > 0,
+  });
+  return { data, isPending, error };
+};
+
+export const useGetProjects = () => {
+  const { data, isPending, error } = useQuery({
+    queryKey: ['projects'],
+    queryFn: getProjects,
   });
   return { data, isPending, error };
 };

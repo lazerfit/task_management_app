@@ -14,7 +14,7 @@ const Navigation = () => {
       {options.map((option) => (
         <button
           key={option.value}
-          className={`py-2 px-4 border rounded-xl text-sm cursor-pointer hover:bg-gray-100 ${
+          className={`cursor-pointer rounded-xl border px-4 py-2 text-sm hover:bg-gray-100 ${
             selectedOption === option.value ? 'bg-gray-100' : ''
           }`}
           onClick={() => setSelectedOption(option.value)}

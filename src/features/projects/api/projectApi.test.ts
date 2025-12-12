@@ -31,6 +31,7 @@ describe('projectApi', () => {
     id: 1,
     name: 'Test Project',
     createAt: new Date(),
+    status: 'TODO',
   };
 
   it('createProject calls axios.post with correct arguments', async () => {
@@ -43,7 +44,7 @@ describe('projectApi', () => {
 
     const result = await createProject(request);
 
-    expect(axiosInstance.post).toHaveBeenCalledWith('/api/projects', request);
+    expect(axiosInstance.post).toHaveBeenCalledWith('/v1/project', request);
     expect(result).toEqual(mockProjectResponse);
   });
 
@@ -55,9 +56,7 @@ describe('projectApi', () => {
 
     const result = await getProject(projectId);
 
-    expect(axiosInstance.get).toHaveBeenCalledWith(
-      `/api/projects/${projectId}`,
-    );
+    expect(axiosInstance.get).toHaveBeenCalledWith(`/v1/project/${projectId}`);
     expect(result).toEqual(mockProjectResponse);
   });
 
@@ -65,6 +64,7 @@ describe('projectApi', () => {
     const projectId = 1;
     const request: ProjectUpdateRequest = {
       name: 'Updated Project',
+      status: 'IN_PROGRESS',
     };
     const updatedResponse = { ...mockProjectResponse, ...request };
 
@@ -75,7 +75,7 @@ describe('projectApi', () => {
     const result = await updateProject(projectId, request);
 
     expect(axiosInstance.put).toHaveBeenCalledWith(
-      `/api/projects/${projectId}`,
+      `/v1/project/${projectId}`,
       request,
     );
     expect(result).toEqual(updatedResponse);
@@ -87,8 +87,6 @@ describe('projectApi', () => {
 
     await deleteProject(projectId);
 
-    expect(axiosInstance.delete).toHaveBeenCalledWith(
-      `/api/projects/${projectId}`,
-    );
+    expect(axiosInstance.delete).toHaveBeenCalledWith(`/projects/${projectId}`);
   });
 });

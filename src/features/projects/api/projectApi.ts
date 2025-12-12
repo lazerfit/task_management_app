@@ -10,15 +10,21 @@ export const createProject = async (
   request: ProjectCreateRequest,
 ): Promise<ProjectResponse> => {
   const { data } = await axiosInstance.post<ApiResponse<ProjectResponse>>(
-    '/api/projects',
+    '/v1/project',
     request,
   );
   return data.data;
 };
 
+export const getProjects = async (): Promise<ProjectResponse[]> => {
+  const { data } =
+    await axiosInstance.get<ApiResponse<ProjectResponse[]>>('/v1/project');
+  return data.data;
+};
+
 export const getProject = async (id: number): Promise<ProjectResponse> => {
   const { data } = await axiosInstance.get<ApiResponse<ProjectResponse>>(
-    `/api/projects/${id}`,
+    `/v1/project/${id}`,
   );
   return data.data;
 };
@@ -28,12 +34,12 @@ export const updateProject = async (
   request: ProjectUpdateRequest,
 ): Promise<ProjectResponse> => {
   const { data } = await axiosInstance.put<ApiResponse<ProjectResponse>>(
-    `/api/projects/${id}`,
+    `/v1/project/${id}`,
     request,
   );
   return data.data;
 };
 
 export const deleteProject = async (id: number): Promise<void> => {
-  await axiosInstance.delete(`/api/projects/${id}`);
+  await axiosInstance.delete(`/projects/${id}`);
 };

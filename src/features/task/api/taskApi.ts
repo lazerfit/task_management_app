@@ -8,14 +8,14 @@ import type {
 
 export const getTask = async (id: number) => {
   const { data } = await axiosInstance.get<ApiResponse<TaskResponse>>(
-    `/api/task/${id}`,
+    `/v1/task/${id}`,
   );
   return data.data;
 };
 
 export const createTask = async (request: TaskCreateRequest) => {
   const { data } = await axiosInstance.post<ApiResponse<TaskResponse>>(
-    '/api/task',
+    '/v1/task',
     request,
   );
   return data.data;
@@ -23,12 +23,12 @@ export const createTask = async (request: TaskCreateRequest) => {
 
 export const updateTask = async (id: number, request: TaskUpdateRequest) => {
   const { data } = await axiosInstance.put<ApiResponse<TaskResponse>>(
-    `/api/task/${id}`,
+    `/v1/task/${id}`,
     request,
   );
   return data.data;
 };
 
 export const deleteTask = async (id: number) => {
-  await axiosInstance.delete(`/api/task/${id}`);
+  await axiosInstance.delete(`/v1/task/${id}`);
 };
