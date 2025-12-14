@@ -8,7 +8,7 @@ export interface ProjectCreateRequest {
 export interface ProjectResponse {
   id: number;
   name: string;
-  createAt: Date;
+  createdAt: string;
   status: Status;
 }
 

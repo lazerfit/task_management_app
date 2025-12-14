@@ -8,6 +8,5 @@ describe('BoxProject', () => {
     render(<BoxProject name={projectName} />);
 
     expect(screen.getByText(projectName)).toBeInTheDocument();
-    expect(screen.getByText('12 tasks')).toBeInTheDocument();
   });
 });

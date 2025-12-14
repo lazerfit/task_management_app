@@ -8,8 +8,13 @@ interface InputProps {
 const Input = ({ value, placeholder, onChange, label }: InputProps) => {
   return (
     <div className="m-2 flex flex-col gap-2">
-      {label && <label className="text-sm font-medium">{label}</label>}
+      {label && (
+        <label htmlFor="project-name" className="text-sm font-medium">
+          {label}
+        </label>
+      )}
       <input
+        id="project-name"
         type="text"
         className="rounded-md border p-2"
         value={value}
