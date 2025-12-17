@@ -2,7 +2,7 @@ import MainContent from '@/components/template/MainContent';
 import Input from '@/components/common/Input';
 import { useState } from 'react';
 import SubmitButton from '@/components/common/SubmitButton';
-import { useCreateProject } from './hooks/useProjectQueries';
+import { useCreateProject } from '../hooks/useProjectQueries';
 
 const ProjectFormMain = () => {
   const [value, setValue] = useState('');

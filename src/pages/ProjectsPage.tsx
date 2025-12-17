@@ -1,6 +1,6 @@
 import Page from '@/components/template/Page';
-import ProjectsHeader from '@/features/projects/ProjectsHeader';
-import ProjectsMain from '@/features/projects/ProjectsMain';
+import ProjectsHeader from '@/features/projects/list/ProjectsHeader';
+import ProjectsMain from '@/features/projects/list/ProjectsMain';
 
 const ProjectsPage = () => {
   return (

@@ -1,6 +1,6 @@
 import Page from '@/components/template/Page';
-import ProjectFormMain from '@/features/projects/ProjectFormMain';
-import ProjectFormHeader from '@/features/projects/ProjectFormHeader';
+import ProjectFormMain from '@/features/projects/form/ProjectFormMain';
+import ProjectFormHeader from '@/features/projects/form/ProjectFormHeader';
 
 const ProjectFormPage = () => {
   return (

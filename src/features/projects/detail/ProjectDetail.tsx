@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import CommonHeader from '@/components/common/CommonHeader';
-import { useGetProject } from './hooks/useProjectQueries';
+import { useGetProject } from '../hooks/useProjectQueries';
 import MainContent from '@/components/template/MainContent';
 
 const ProjectDetail = () => {

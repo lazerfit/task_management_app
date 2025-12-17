@@ -1,5 +1,5 @@
 import Page from '@/components/template/Page';
-import ProjectDetail from '@/features/projects/ProjectDetail';
+import ProjectDetail from '@/features/projects/detail/ProjectDetail';
 
 const ProjectDetailPage = () => {
   return (

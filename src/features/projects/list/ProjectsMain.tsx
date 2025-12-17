@@ -1,8 +1,8 @@
 import Navigation from './Navigation';
 import BoxProject from '@/features/projects/components/BoxProject';
-import { useGetProjects } from './hooks/useProjectQueries';
+import { useGetProjects } from '../hooks/useProjectQueries';
 import { useState } from 'react';
-import type { ProjectStatus } from './types/projectTypes';
+import type { ProjectStatus } from '../types/projectTypes';
 import ProjectEmpty from './ProjectEmpty';
 
 const ProjectsMain = () => {

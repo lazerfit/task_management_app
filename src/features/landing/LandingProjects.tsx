@@ -1,6 +1,6 @@
 import BoxProject from '@/features/projects/components/BoxProject';
 import { useGetProjects } from '../projects/hooks/useProjectQueries';
-import ProjectEmpty from '../projects/ProjectEmpty';
+import ProjectEmpty from '../projects/list/ProjectEmpty';
 
 const LandingProjects = () => {
   const { data } = useGetProjects();

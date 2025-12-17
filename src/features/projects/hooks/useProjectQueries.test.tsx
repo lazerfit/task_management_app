@@ -51,18 +51,18 @@ describe('useProjectQueries', () => {
       const getProjectSpy = vi.spyOn(projectApi, 'getProject');
       getProjectSpy.mockResolvedValue(mockProject);
 
-      const { result } = renderHook(() => useGetProject(1), {
+      const { result } = renderHook(() => useGetProject('1'), {
         wrapper: queryWrapper(),
       });
 
       await waitFor(() => expect(result.current.data).toEqual(mockProject));
-      expect(getProjectSpy).toHaveBeenCalledWith(1);
+      expect(getProjectSpy).toHaveBeenCalledWith('1');
     });
 
     it('does not fetch if id is invalid', () => {
       const getProjectSpy = vi.spyOn(projectApi, 'getProject');
 
-      const { result } = renderHook(() => useGetProject(0), {
+      const { result } = renderHook(() => useGetProject('0'), {
         wrapper: queryWrapper(),
       });
 

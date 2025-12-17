@@ -1,4 +1,4 @@
-import type { ProjectStatus } from './types/projectTypes';
+import type { ProjectStatus } from '../types/projectTypes';
 
 interface NavigationProps {
   filter: ProjectStatus;
