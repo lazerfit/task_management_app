@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import ProjectFormMain from './ProjectFormMain';
-import { render } from '@/test/render/customRender';
+import customRender from '@/test/render/customRender';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createRoutesStub } from 'react-router-dom';
@@ -19,7 +19,7 @@ describe('ProjectFromMain', () => {
         children: [{ path: '/', Component: ProjectFormMain }],
       },
     ]);
-    render(<Stub initialEntries={['/']} />);
+    customRender(<Stub initialEntries={['/']} />);
   });
 
   it('Input과 SubmitButton이 렌더링 된다.', () => {

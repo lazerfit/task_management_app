@@ -1,7 +1,7 @@
-import HeaderLayout from '@/components/common/HeaderLayout';
+import CommonHeader from '@/components/common/CommonHeader';
 
 const ProjectsHeader = () => {
-  return <HeaderLayout title="Projects" />;
+  return <CommonHeader title="Projects" />;
 };
 
 export default ProjectsHeader;

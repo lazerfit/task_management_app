@@ -1,21 +1,32 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import customRender from '@/test/render/customRender';
 import ProjectsMain from './ProjectsMain';
-import { describe, it, expect, vi } from 'vitest';
+import { createRoutesStub } from 'react-router-dom';
+import Layout from '@/components/layouts/Layout';
 
-// Mock child components
-vi.mock('./Navigation', () => ({
-  default: () => <div data-testid="navigation">Navigation</div>,
-}));
+describe('ProjectsMain.test', () => {
+  const Stub = createRoutesStub([
+    {
+      path: '/',
+      Component: Layout,
+      children: [
+        {
+          path: '/projects',
+          Component: ProjectsMain,
+        },
+      ],
+    },
+  ]);
+  beforeEach(() => {
+    customRender(<Stub initialEntries={['/projects']} />);
+  });
 
-vi.mock('@/components/common/BoxProject', () => ({
-  default: () => <div data-testid="box-project">BoxProject</div>,
-}));
+  it('프로젝트가 렌더링되어야 한다.', async () => {
+    const project = await screen.findByText('test_project');
+    const project2 = await screen.findByText('test_project2');
 
-describe('ProjectsMain', () => {
-  it('renders navigation and project list', () => {
-    render(<ProjectsMain />);
-
-    expect(screen.getByTestId('navigation')).toBeInTheDocument();
-    expect(screen.getByTestId('box-project')).toBeInTheDocument();
+    expect(project).toBeInTheDocument();
+    expect(project2).toBeInTheDocument();
   });
 });

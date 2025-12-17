@@ -8,6 +8,7 @@ import SettingMain from './features/setting/SettingMain';
 import ThemePage from './features/setting/ThemePage';
 import CalendarPage from './pages/CalendarPage';
 import ProjectFormPage from './pages/ProjectFormPage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/projects">
           <Route index element={<ProjectsPage />} />
           <Route path="new" element={<ProjectFormPage />} />
+          <Route path=":id" element={<ProjectDetailPage />} />
         </Route>
         <Route path="/setting" element={<SettingPage />}>
           <Route index element={<SettingMain />} />

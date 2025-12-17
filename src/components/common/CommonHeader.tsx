@@ -6,20 +6,22 @@ interface HeaderLayoutProps {
   title: string;
 }
 
-const HeaderLayout = ({ title }: HeaderLayoutProps) => {
+const CommonHeader = ({ title }: HeaderLayoutProps) => {
   const navigate = useNavigate();
 
   return (
     <Header>
       <div className="cursor-pointer" onClick={() => navigate(-1)}>
-        <IconArrowLeft size={26} />
+        <IconArrowLeft size={26} aria-label="back-button" role="img" />
       </div>
-      <div className="font-english text-3xl font-bold">{title}</div>
+      <div className="font-english scroll-m-20 text-3xl font-semibold tracking-tight">
+        {title}
+      </div>
       <div className="cursor-pointer">
-        <IconMenu2 size={26} />
+        <IconMenu2 size={26} aria-label="menu" role="img" />
       </div>
     </Header>
   );
 };
 
-export default HeaderLayout;
+export default CommonHeader;

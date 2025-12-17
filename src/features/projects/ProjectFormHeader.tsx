@@ -1,7 +1,7 @@
-import HeaderLayout from '@/components/common/HeaderLayout';
+import CommonHeader from '@/components/common/CommonHeader';
 
 const ProjectFormHeader = () => {
-  return <HeaderLayout title="Project Form" />;
+  return <CommonHeader title="Project Form" />;
 };
 
 export default ProjectFormHeader;

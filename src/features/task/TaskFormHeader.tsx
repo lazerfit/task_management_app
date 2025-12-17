@@ -1,7 +1,7 @@
-import HeaderLayout from '@/components/common/HeaderLayout';
+import CommonHeader from '@/components/common/CommonHeader';
 
 const TaskFormHeader = () => {
-  return <HeaderLayout title="Task From" />;
+  return <CommonHeader title="Task From" />;
 };
 
 export default TaskFormHeader;

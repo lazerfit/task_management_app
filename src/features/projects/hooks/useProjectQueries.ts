@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import type {
   ProjectCreateRequest,
   ProjectResponse,
+  ProjectStatus,
 } from '../types/projectTypes';
 import {
   createProject,
@@ -23,19 +24,19 @@ export const useCreateProject = () => {
   );
 };
 
-export const useGetProject = (id: number) => {
+export const useGetProject = (id: string | undefined) => {
   const { data, isPending, error } = useQuery({
     queryKey: ['project', id],
     queryFn: () => getProject(id),
-    enabled: !!id && id > 0,
+    enabled: typeof id === 'string' && Number.parseInt(id) > 0,
   });
   return { data, isPending, error };
 };
 
-export const useGetProjects = () => {
+export const useGetProjects = (filter?: ProjectStatus) => {
   const { data, isPending, error } = useQuery({
-    queryKey: ['projects'],
-    queryFn: getProjects,
+    queryKey: ['projects', filter],
+    queryFn: () => getProjects(filter),
   });
   return { data, isPending, error };
 };

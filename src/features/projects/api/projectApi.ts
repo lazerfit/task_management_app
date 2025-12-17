@@ -1,5 +1,6 @@
 import type {
   ProjectCreateRequest,
+  ProjectStatus,
   ProjectUpdateRequest,
 } from '../types/projectTypes';
 import type { ApiResponse } from '@/types/api';
@@ -16,13 +17,23 @@ export const createProject = async (
   return data.data;
 };
 
-export const getProjects = async (): Promise<ProjectResponse[]> => {
-  const { data } =
-    await axiosInstance.get<ApiResponse<ProjectResponse[]>>('/v1/project');
+export const getProjects = async (
+  filter?: ProjectStatus,
+): Promise<ProjectResponse[]> => {
+  const { data } = await axiosInstance.get<ApiResponse<ProjectResponse[]>>(
+    '/v1/project',
+    {
+      params: {
+        filter: filter ? filter : 'ALL',
+      },
+    },
+  );
   return data.data;
 };
 
-export const getProject = async (id: number): Promise<ProjectResponse> => {
+export const getProject = async (
+  id: string | undefined,
+): Promise<ProjectResponse> => {
   const { data } = await axiosInstance.get<ApiResponse<ProjectResponse>>(
     `/v1/project/${id}`,
   );

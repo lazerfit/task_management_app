@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import type { ProjectStatus } from './types/projectTypes';
 
-const Navigation = () => {
-  const [selectedOption, setSelectedOption] = useState('all');
+interface NavigationProps {
+  filter: ProjectStatus;
+  onChange: (value: ProjectStatus) => void;
+}
 
-  const options = [
-    { label: 'All', value: 'all' },
-    { label: 'In progress', value: 'in-progress' },
-    { label: 'Completed', value: 'completed' },
+interface Options {
+  label: string;
+  value: ProjectStatus;
+}
+
+const Navigation = ({ filter, onChange }: NavigationProps) => {
+  const options: Options[] = [
+    { label: 'All', value: '' },
+    { label: 'To do', value: 'TODO' },
+    { label: 'In progress', value: 'IN_PROGRESS' },
+    { label: 'Done', value: 'DONE' },
   ];
 
   return (
@@ -15,9 +24,9 @@ const Navigation = () => {
         <button
           key={option.value}
           className={`cursor-pointer rounded-xl border px-4 py-2 text-sm hover:bg-gray-100 ${
-            selectedOption === option.value ? 'bg-gray-100' : ''
+            filter === option.value ? 'bg-gray-100' : ''
           }`}
-          onClick={() => setSelectedOption(option.value)}
+          onClick={() => onChange(option.value as ProjectStatus)}
         >
           {option.label}
         </button>

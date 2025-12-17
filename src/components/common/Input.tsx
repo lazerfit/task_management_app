@@ -9,7 +9,10 @@ const Input = ({ value, placeholder, onChange, label }: InputProps) => {
   return (
     <div className="m-2 flex flex-col gap-2">
       {label && (
-        <label htmlFor="project-name" className="text-sm font-medium">
+        <label
+          htmlFor="project-name"
+          className="text-sm leading-none font-medium"
+        >
           {label}
         </label>
       )}

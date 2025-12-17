@@ -1,7 +1,7 @@
-import HeaderLayout from '@/components/common/HeaderLayout';
+import CommonHeader from '@/components/common/CommonHeader';
 
 const CalendarHeader = () => {
-  return <HeaderLayout title="Calendar" />;
+  return <CommonHeader title="Calendar" />;
 };
 
 export default CalendarHeader;

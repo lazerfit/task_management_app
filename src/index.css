@@ -2,8 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
-
-@custom-variant dark (&:is(.dark *));
+@import 'normalize.css' @custom-variant dark (&: is(.dark *));
 
 @theme {
   --font-english: 'Story Script', sans-serif;
